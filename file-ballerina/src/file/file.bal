@@ -123,6 +123,7 @@ public function copy(@untainted string sourcePath, @untainted string destination
     name: "copy"
 } external;
 
+# Creates a temporary file.
 # ```ballerina
 # string|error tmpFile = file:createTemp();
 # ```
@@ -131,7 +132,7 @@ public function copy(@untainted string sourcePath, @untainted string destination
 # + prefix - Optional file prefix
 # + dir - The directory path where the temp file should be created. If not specified, temp file will be created in the default temp directory of the OS.
 # + return - Temporary file path or an error if one occured
-public function createTemp(string suffix = "", string prefix = "", string dir  = "")
+public function createTemp(string? suffix = (), string? prefix = (), string? dir  = ())
                                  returns string|Error = @java:Method {
     'class: "org.ballerinalang.stdlib.file.nativeimpl.Utils",
     name: "createTemp"
@@ -146,7 +147,7 @@ public function createTemp(string suffix = "", string prefix = "", string dir  =
 # + prefix - Optional directory prefix
 # + dir - The directory path where the temp directory should be created. If not specified, temp directory will be created in the default temp directory of the OS.
 # + return - Temporary directory path or an error if one occured
-public function createTempDir(string suffix = "", string prefix = "", string dir  = "")
+public function createTempDir(string? suffix = (), string? prefix = (), string? dir  = ())
                                  returns string|Error = @java:Method {
     'class: "org.ballerinalang.stdlib.file.nativeimpl.Utils",
     name: "createTempDir"
